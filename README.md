@@ -1,3 +1,14 @@
+```
+|¯|     ___   ___       
+| |__  / _ \ / _ \ _  __
+| '_ \| | | | | | | |/ /
+| | | | |_| | |_| |   < 
+|_| |_|\___/ \___/|_|\_\
+
+> What did you learn in school today?
+Revenge.
+```
+
 ## Compile errors
 
 * Cannot convert from CHAR to LPCWSTR
