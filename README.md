@@ -2,7 +2,7 @@
 
 * Cannot convert from CHAR to LPCWSTR
 
-![Char to LPCWSTR](images/char_to_lpcwstr.png)
+![Char to LPCWSTR](images/char_2_lpcwstr.png?raw=true)
 
 The solutions is to change some parameters in project properties.
 
