@@ -1,3 +1,6 @@
+# VS Machine config
+.vs/
+
 # Compiled
 Debug/
 Release/
@@ -6,5 +9,5 @@ x86/
 h00k/Debug
 h00k/Release
 h00k/x64/
-h00kxk86/
+h00k/x86/
 
