@@ -1,6 +1,9 @@
 # VS Machine config
 .vs/
 
+# Tmp folder
+enc_temp_folder/
+
 # Compiled
 Debug/
 Release/
