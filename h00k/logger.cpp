@@ -12,7 +12,8 @@
 
 // The magical rest parameter, basically we get the format str as first parameter
 // and the rest is optional, it will fill into the formatted characters (Ex: %s %d %c %p)
-void LogMessage(char* fmt, ...) {
+void LogMessage(char* fmt, ...)
+{
 	static CHAR buffer[MAX_SIZE_LOGGER_BUFFER];
 	va_list args;
 	va_start(args, fmt);
