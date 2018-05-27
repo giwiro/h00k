@@ -8,8 +8,11 @@
 > What did you learn in school today?
 Revenge.
 ```
+
 ## Description
 **h00k** is a simple Windows c keylogger made using ```window.h```. It writes all keystrokes by application, on a log file in plain text.
+
+[![forthebadge](https://forthebadge.com/images/badges/oooo-kill-em.svg)](https://forthebadge.com)
 
 This is an example of a log:
 ![Char to LPCWSTR](images/example.png?raw=true)
