@@ -5,7 +5,6 @@
 #include "atlstr.h"
 #include "atlconv.h"
 #include "comutil.h"
-#include <string>
 #include <stdio.h>
 
 #define MAX_SIZE_LOGGER_BUFFER 1024
